@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import User
 
 class PetPerdido(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
@@ -7,7 +8,9 @@ class PetPerdido(models.Model):
     localidade = models.CharField(max_length=200, null=False, blank=False)
     caracteristicas = models.TextField()
     #foto = models.ImageField(upload_to='images/', null=False, blank=False)
-    #dono = 
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="pets_perdidos"
+    )
     
     def __str__(self):
         return f"{self.nome} ({self.genero})"
