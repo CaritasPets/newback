@@ -10,6 +10,8 @@ from users.views import (
     DeleteView,
     LoginView,
     UpdateProfileView,
+    ListCommonUserViewSet,
+    ListOrganizationViewSet,
 )
 from adocao.views import (
     PetAdocaoViewSet,
@@ -20,6 +22,8 @@ router = DefaultRouter()
 
 router.register(r"adocao", PetAdocaoViewSet)
 router.register(r"perdidos", PetPerdidoViewSet)
+router.register(r"organizations", ListOrganizationViewSet)
+router.register(r"users", ListCommonUserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
