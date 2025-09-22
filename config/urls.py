@@ -4,7 +4,8 @@ from django.urls import path, include
 
 from users.views import (
     RegisterView,
-    ProfileView
+    ProfileView,
+    DeleteView,
 )
 from adocao.views import (
     PetAdocaoViewSet,
@@ -22,5 +23,6 @@ urlpatterns = [
 
     #users
     path('api/register/', RegisterView.as_view(), name="register"),
-    path('api/profile/', ProfileView.as_view(), name="profile")
+    path('api/profile/', ProfileView.as_view(), name="profile"),
+    path('api/delete-user/', DeleteView.as_view(), name="delete-user")
 ]
