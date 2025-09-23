@@ -1,5 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
 from ..serializers import PetPerdidoSerializer
 from ..models import PetPerdido
 from ..permissions import IsOwnerOrReadOnly
@@ -7,7 +8,8 @@ from ..permissions import IsOwnerOrReadOnly
 class PetPerdidoViewSet(ModelViewSet):
     queryset = PetPerdido.objects.all()
     serializer_class = PetPerdidoSerializer
-
+    parser_classes = (MultiPartParser, FormParser)
+    
     def get_permissions(self):
         if self.action == "create":
             permission_classes = [IsAuthenticated]

@@ -7,7 +7,7 @@ class PetPerdido(models.Model):
     genero = models.CharField(max_length=5, null=False, blank=False)
     localidade = models.CharField(max_length=200, null=False, blank=False)
     caracteristicas = models.TextField()
-    #foto = models.ImageField(upload_to='images/', null=False, blank=False)
+    foto = models.ImageField(upload_to='images/perdidos/', null=False, blank=False)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="pets_perdidos"
     )

@@ -12,7 +12,7 @@ class PetAdocao(models.Model):
     user = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="pets_adocao"
     )
-    #foto = models.ImageField(upload_to='images/', null=False, blank=False)
+    foto = models.ImageField(upload_to='images/adocao/', null=False, blank=False)
     
 
     def __str__(self):
