@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.parsers import MultiPartParser, FormParser
 from ..models import PetAdocao
 from ..serializers import PetAdocaoSerializer
 from ..permissions import IsOrganization, IsOwnerOrReadOnly
@@ -6,6 +7,7 @@ from ..permissions import IsOrganization, IsOwnerOrReadOnly
 class PetAdocaoViewSet(ModelViewSet):
     queryset = PetAdocao.objects.all()
     serializer_class = PetAdocaoSerializer
+    parser_classes = (MultiPartParser, FormParser)
 
     def get_permissions(self):
         if self.action == "create":

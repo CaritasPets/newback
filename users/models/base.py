@@ -7,4 +7,4 @@ class User(AbstractUser):
         ('common', 'Comum'),
         ('organization', 'Organization')
     ))
-    #foto = models.ImageField(upload_to='images/', null=True)
+    foto = models.ImageField(upload_to='images/users/', null=True)
