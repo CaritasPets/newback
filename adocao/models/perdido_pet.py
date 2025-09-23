@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+from django.conf import settings
 
 class PetPerdido(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
@@ -12,5 +13,11 @@ class PetPerdido(models.Model):
         User, on_delete=models.CASCADE, related_name="pets_perdidos"
     )
     
+    favoritos = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="favoritos_perdido",
+        blank=True,
+    )
+
     def __str__(self):
         return f"{self.nome} ({self.genero})"
